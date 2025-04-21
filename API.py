@@ -9,7 +9,9 @@ from tensorflow.keras.models import load_model
 app = FastAPI()
 
 # Cargar el modelo una sola vez al inicio
-model = load_model("model_Mnist_LeNet.h5")
+import os
+model = load_model(os.path.join(os.getcwd(), "model_Mnist_LeNet.h5"))
+
 
 def preprocess_image(file_bytes):
     # Cargar imagen desde bytes y convertir a escala de grises
